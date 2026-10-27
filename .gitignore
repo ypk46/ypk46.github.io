@@ -1,0 +1,13 @@
+# Local tooling
+.mcp.json
+.claude/settings.local.json
+
+# OS and editors
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Python (scripts/medium.py)
+__pycache__/
+*.pyc

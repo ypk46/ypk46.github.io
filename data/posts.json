@@ -1,0 +1,141 @@
+[
+  {
+    "id": "ac8075742ecf",
+    "title": "Build your own X",
+    "url": "https://medium.reversepitch.io/build-your-own-x-ac8075742ecf",
+    "date": "2026-10-23",
+    "tags": [
+      "builders",
+      "careers",
+      "daily-life"
+    ],
+    "summary": "A lot of people are condemning vibe coding and AI-assisted projects. Most of them are traditional engineers who know the nitty-gritty of…",
+    "image": "https://cdn-images-1.medium.com/max/2600/1*XeVsZVQW16LHd42vmx7IJw.jpeg"
+  },
+  {
+    "id": "d793b4cce504",
+    "title": "Sandboxing your Coding Agents",
+    "url": "https://medium.reversepitch.io/sandboxing-your-coding-agents-d793b4cce504",
+    "date": "2026-10-05",
+    "tags": [
+      "claude-code",
+      "software-engineering",
+      "ai",
+      "security"
+    ],
+    "summary": "Recently, our GitHub Actions workflows stopped running. No failed builds, no red checks, just nothing. Deployments were halted until we…",
+    "image": "https://cdn-images-1.medium.com/max/1024/0*oXbmTB1hfr5M9bEM.jpeg"
+  },
+  {
+    "id": "b611568e4b09",
+    "title": "What a Pokémon-Playing Bot Shows About Decision Models",
+    "url": "https://medium.reversepitch.io/what-a-pok%C3%A9mon-playing-bot-shows-about-decision-models-b611568e4b09",
+    "date": "2026-09-28",
+    "tags": [
+      "ai",
+      "software-engineering",
+      "jevs",
+      "software-development"
+    ],
+    "summary": "In the last few days, I’ve seen a lot of people using Jev, some of them claiming complete bullshit while others claiming more realistic…",
+    "image": "https://cdn-images-1.medium.com/max/1456/0*KZO6AeMWjWD6Y_O6.jpeg"
+  },
+  {
+    "id": "60b4bc9197e2",
+    "title": "The Reverse Pitch on “Just Build Things”",
+    "url": "https://medium.reversepitch.io/the-reverse-pitch-on-just-build-things-60b4bc9197e2",
+    "date": "2026-09-23",
+    "tags": [
+      "software-development",
+      "jobs",
+      "ai",
+      "the-reverse-pitch"
+    ],
+    "summary": "For a decade, “it works” passed for competence. Then agents made it free.",
+    "image": "https://cdn-images-1.medium.com/max/1200/1*i73Hdc46ocvMdykh6rjOrw.png"
+  },
+  {
+    "id": "3f3784a0a48f",
+    "title": "The Reverse Pitch on “AI Writes the Code for You”",
+    "url": "https://medium.reversepitch.io/the-reverse-pitch-on-ai-writes-the-code-for-you-3f3784a0a48f",
+    "date": "2026-09-19",
+    "tags": [
+      "ai",
+      "productivity",
+      "software-engineering",
+      "the-reverse-pitch"
+    ],
+    "summary": "The demo is real. So is the bill it doesn’t show you.",
+    "image": "https://cdn-images-1.medium.com/max/1200/1*V4vmZS7dXpWRM4Fq3QtWTQ.png"
+  },
+  {
+    "id": "289e731ee32b",
+    "title": "Ensuring Fair Processing with Celery — Part II",
+    "url": "https://medium.reversepitch.io/ensuring-fair-processing-with-celery-part-ii-289e731ee32b",
+    "date": "2024-12-09",
+    "tags": [
+      "celery",
+      "sofware-development",
+      "python"
+    ],
+    "summary": "Taming Celery: Task-Level Priority for Fair Processing",
+    "image": "https://cdn-images-1.medium.com/max/2600/1*mf9UG5q5BpnscJuD1tAhvg.png"
+  },
+  {
+    "id": "5fb7f67f91f9",
+    "title": "Ensuring Fair Processing with Celery — Part I",
+    "url": "https://medium.reversepitch.io/ensuring-fair-processing-with-celery-part-i-5fb7f67f91f9",
+    "date": "2024-11-14",
+    "tags": [
+      "software-development",
+      "python",
+      "celery",
+      "programming"
+    ],
+    "summary": "Taming Celery: Fair Task Processing with Rate Limits",
+    "image": "https://cdn-images-1.medium.com/max/2600/1*ftA6qam2NSbrhwRCqjMDug.png"
+  },
+  {
+    "id": "d260e4bf853e",
+    "title": "Understanding Retrieval Augmented Generation: Part III",
+    "url": "https://medium.reversepitch.io/understanding-retrieval-augmented-generation-part-iii-d260e4bf853e",
+    "date": "2024-10-10",
+    "tags": [
+      "natural-language",
+      "python",
+      "machine-learning",
+      "retrieval-augmented-gen",
+      "ai"
+    ],
+    "summary": "Welcome to the third installment of our RAG series! If you haven’t already, be sure to check out Part I and Part II.",
+    "image": "https://cdn-images-1.medium.com/max/936/1*ffVDYAs7EBTfnay37Lv4vQ.jpeg"
+  },
+  {
+    "id": "546f85bd2dd6",
+    "title": "Understanding Retrieval Augmented Generation: Part II",
+    "url": "https://medium.reversepitch.io/understanding-retrieval-augmented-generation-part-ii-546f85bd2dd6",
+    "date": "2024-09-12",
+    "tags": [
+      "vector-search",
+      "large-language-models",
+      "retrieval-augmented",
+      "machine-learning",
+      "artificial-intelligence"
+    ],
+    "summary": "Welcome to the second installment of our RAG series!",
+    "image": "https://cdn-images-1.medium.com/max/2600/1*dHSR9eW14wum0YvmTBhf4A.jpeg"
+  },
+  {
+    "id": "4ccc54c38841",
+    "title": "Understanding Retrieval Augmented Generation: Part I",
+    "url": "https://medium.reversepitch.io/understanding-retrieval-augmented-generation-part-i-4ccc54c38841",
+    "date": "2024-08-20",
+    "tags": [
+      "llm",
+      "retrieval-augmented",
+      "ai"
+    ],
+    "summary": "",
+    "image": ""
+  }
+]

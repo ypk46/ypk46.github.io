@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects · Yuyi Kimura</title>
+    <meta
+      name="description"
+      content="Games, developer tools and AI experiments by Yuyi Kimura: 2048 Reloaded, Kaku, FrameCraft and Claytone."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ykimura.dev" />
+    <meta property="og:title" content="Projects · Yuyi Kimura" />
+    <meta property="og:description" content="Games, developer tools and AI experiments. Some shipped, some still cooking." />
+    <meta property="og:url" content="https://ykimura.dev/projects/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/projects/projects.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a class="logo" href="/"><span class="dot" aria-hidden="true"></span>ykimura.dev</a>
+        <nav aria-label="Main">
+          <ul class="tabs">
+            <li><a href="/">About</a></li>
+            <li><a href="/projects/" aria-current="page">Projects</a></li>
+            <li><a href="/experience/">Experience</a></li>
+            <li><a href="/writing/">Writing</a></li>
+          </ul>
+        </nav>
+        <script>
+          // On narrow screens the tabs scroll inside their pill; keep the current one in view.
+          for (const tab of document.querySelectorAll(".tabs [aria-current]")) {
+            tab.closest(".tabs").scrollLeft = tab.offsetLeft + tab.offsetWidth - tab.closest(".tabs").clientWidth + 4;
+          }
+        </script>
+        <ul class="socials">
+          <li><a class="mono-link" href="https://github.com/ypk46">GitHub <span aria-hidden="true">↗</span></a></li>
+          <li><a class="mono-link" href="https://www.linkedin.com/in/ypk46/">LinkedIn <span aria-hidden="true">↗</span></a></li>
+          <li><a class="mono-link" href="https://medium.com/@yuyik46">Medium <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="container">
+      <header class="page-header page-header-tight">
+        <div class="page-header-text">
+          <p class="label label-accent">Projects</p>
+          <h1 class="display">Things I build on the side.</h1>
+          <p class="lead">Games, developer tools and AI experiments. Some shipped, some still cooking.</p>
+        </div>
+        <!-- Shown by projects.js; without JavaScript every project is listed. -->
+        <div class="filters" role="group" aria-label="Filter projects" hidden>
+          <button type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="games" aria-pressed="false">Games</button>
+          <button type="button" data-filter="ai" aria-pressed="false">AI</button>
+          <button type="button" data-filter="dev-tools" aria-pressed="false">Dev tools</button>
+        </div>
+      </header>
+
+      <div class="project-grid">
+        <article class="card project-card featured" data-category="games">
+          <div class="featured-body">
+            <div class="project-head">
+              <p class="project-meta label"><span class="label-accent">Featured</span><span>Mobile game</span></p>
+              <h2>2048 Reloaded</h2>
+              <p class="featured-desc">The classic sliding-tile puzzle with stones to break and power-ups to use. Plays fully offline.</p>
+            </div>
+            <div class="featured-foot">
+              <ul class="tags" aria-label="Tags">
+                <li>Mobile</li>
+                <li>Offline-first</li>
+                <li>AdMob</li>
+              </ul>
+              <p class="featured-links">
+                <!-- TODO: add the store link once 2048 Reloaded is live:
+                <a class="mono-link mono-link-ink" href="STORE_URL">Get the app <span aria-hidden="true">↗</span></a> -->
+                <a class="mono-link" href="/games/privacy/">Privacy policy</a>
+              </p>
+            </div>
+          </div>
+          <div class="featured-visual" aria-hidden="true">
+            <div class="board">
+              <span></span><span>2</span><span></span><span>4</span>
+              <span class="stone"></span><span>8</span><span></span><span></span>
+              <span>16</span><span class="t128">128</span><span></span><span>2</span>
+              <span></span><span></span><span class="t2048">2048</span><span></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project-card" data-category="ai">
+          <div class="project-head">
+            <p class="project-meta">
+              <span class="label">Design · AI agents</span>
+              <span class="status"><span aria-hidden="true">● </span>In development</span>
+            </p>
+            <h2>Kaku</h2>
+            <p>
+              A design canvas for AI agents. Agents draw and lay out screens over MCP while you stay in control,
+              adjusting the same design with precise tools. This site was designed in it.
+            </p>
+          </div>
+          <ul class="tags" aria-label="Tags">
+            <li>AI agents</li>
+            <li>Live canvas</li>
+            <li>Human in the loop</li>
+          </ul>
+        </article>
+
+        <article class="card project-card" data-category="ai">
+          <div class="project-head">
+            <p class="project-meta">
+              <span class="label">Video · Generation</span>
+              <span class="status"><span aria-hidden="true">● </span>In development</span>
+            </p>
+            <h2>FrameCraft</h2>
+            <p>
+              Deterministic video generation. Pick a motion-graphics template, fill it with your data or plain
+              language, preview it live and download the clip.
+            </p>
+          </div>
+          <ul class="tags" aria-label="Tags">
+            <li>Templates</li>
+            <li>Live preview</li>
+            <li>Deterministic</li>
+          </ul>
+        </article>
+
+        <article class="card project-card" data-category="dev-tools">
+          <div class="project-head">
+            <p class="project-meta">
+              <span class="label">Dev tool · npm</span>
+              <span class="mono-link" aria-hidden="true">↗</span>
+            </p>
+            <h2><a class="card-link" href="https://www.npmjs.com/package/claytone">Claytone</a></h2>
+            <p>
+              A CLI that scaffolds a design engine for AI coding assistants, generating a structured Claude Code
+              setup for any project.
+            </p>
+          </div>
+          <ul class="tags" aria-label="Tags">
+            <li>TypeScript</li>
+            <li>CLI</li>
+          </ul>
+        </article>
+      </div>
+    </main>
+
+    <footer class="container site-footer">
+      <p class="mono-link">© 2026 Yuyi Kimura</p>
+      <ul class="footer-links">
+        <li><a class="mono-link" href="mailto:support@ykimura.dev">support@ykimura.dev</a></li>
+        <li><a class="mono-link" href="https://github.com/ypk46">GitHub</a></li>
+        <li><a class="mono-link" href="https://www.linkedin.com/in/ypk46/">LinkedIn</a></li>
+        <li><a class="mono-link" href="https://medium.com/feed/@yuyik46">RSS</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>
