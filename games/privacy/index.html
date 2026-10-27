@@ -10,6 +10,14 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap"
     />
+    <script>
+      // Apply the theme chosen with the toggle (theme.js) before first paint; .js shows the toggle.
+      document.documentElement.classList.add("js");
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>

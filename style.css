@@ -19,8 +19,9 @@
   color-scheme: light dark;
 }
 
+/* Dark values: from the system setting unless the theme toggle chose light (data-theme on <html>). */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --color-bg: #0e0f11;
     --color-surface: #16181b;
     --color-ink: #ecedea;
@@ -28,6 +29,20 @@
     --color-border: #26292e;
     --color-accent: #ff6a33;
   }
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #0e0f11;
+  --color-surface: #16181b;
+  --color-ink: #ecedea;
+  --color-ink-muted: #9399a3;
+  --color-border: #26292e;
+  --color-accent: #ff6a33;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
 }
 
 /* Base */
@@ -228,10 +243,61 @@ button {
   color: var(--color-bg);
 }
 
+.nav-end {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-self: end;
+}
+
 .socials {
   display: flex;
   gap: 24px;
-  justify-self: end;
+  white-space: nowrap;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-ink-muted);
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+:root:not(.js) .theme-toggle {
+  display: none;
+}
+
+.theme-toggle:hover {
+  color: var(--color-ink);
+}
+
+/* Show the theme the button switches to: a moon on light pages, a sun on dark ones. */
+.theme-toggle .icon-sun,
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun {
+    display: block;
+  }
+
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon {
+    display: none;
+  }
 }
 
 /* Buttons, tags, pills */
@@ -1001,6 +1067,11 @@ button {
 
   .navbar > nav {
     min-width: 0;
+  }
+
+  .theme-toggle {
+    width: 44px;
+    height: 44px;
   }
 
   .tabs {
