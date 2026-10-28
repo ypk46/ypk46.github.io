@@ -821,6 +821,17 @@ button {
   background: var(--color-bg);
 }
 
+/* Screenshot visual: the image carries its own window shadow and margin, so the panel padding is lighter. */
+.featured-shot {
+  padding: 24px;
+}
+
+.featured-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .board {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 72px));
@@ -1247,6 +1258,10 @@ button {
   .featured-body,
   .featured-visual {
     padding: 24px;
+  }
+
+  .featured-shot {
+    padding: 12px;
   }
 
   .featured-visual {

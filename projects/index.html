@@ -6,12 +6,12 @@
     <title>Projects · Yuyi Kimura</title>
     <meta
       name="description"
-      content="Games, developer tools and AI experiments by Yuyi Kimura: 2048 Reloaded, Kaku, FrameCraft and Claytone."
+      content="Games, productivity tools, developer tools and AI experiments by Yuyi Kimura: 2048 Reloaded, Sundial, Better Planner, Kaku, FrameCraft and Claytone."
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ykimura.dev" />
     <meta property="og:title" content="Projects · Yuyi Kimura" />
-    <meta property="og:description" content="Games, developer tools and AI experiments. Some shipped, some still cooking." />
+    <meta property="og:description" content="Games, productivity tools, developer tools and AI experiments. Some shipped, some still cooking." />
     <meta property="og:url" content="https://ykimura.dev/projects/" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -71,12 +71,13 @@
             <div class="page-header-text">
               <p class="label label-accent">Projects</p>
               <h1 class="display">Things I build on the side.</h1>
-              <p class="lead">Games, developer tools and AI experiments. Some shipped, some still cooking.</p>
+              <p class="lead">Games, productivity tools, developer tools and AI experiments. Some shipped, some still cooking.</p>
             </div>
             <!-- Shown by projects.js; without JavaScript every project is listed. -->
             <div class="filters" role="group" aria-label="Filter projects" hidden>
               <button type="button" data-filter="all" aria-pressed="true">All</button>
               <button type="button" data-filter="games" aria-pressed="false">Games</button>
+              <button type="button" data-filter="productivity" aria-pressed="false">Productivity</button>
               <button type="button" data-filter="ai" aria-pressed="false">AI</button>
               <button type="button" data-filter="dev-tools" aria-pressed="false">Dev tools</button>
             </div>
@@ -114,6 +115,55 @@
                 <span></span><span></span><span class="t2048">2048</span><span></span>
               </div>
             </div>
+          </article>
+
+          <article class="card project-card featured" data-category="productivity">
+            <div class="featured-body">
+              <div class="project-head">
+                <p class="project-meta label"><span class="label-accent">Featured</span><span>Desktop app</span></p>
+                <h2>Sundial</h2>
+                <p class="featured-desc">A native dashboard for Super Productivity time tracking. Sync once, then browse hours per day, project breakdowns and completed tasks offline.</p>
+              </div>
+              <div class="featured-foot">
+                <ul class="tags" aria-label="Tags">
+                  <li>Tauri</li>
+                  <li>React</li>
+                  <li>Offline-first</li>
+                </ul>
+                <p class="featured-links">
+                  <a class="mono-link mono-link-ink" href="https://github.com/ypk46/sp-sundial/releases/latest">Download <span aria-hidden="true">↗</span></a>
+                  <a class="mono-link" href="https://github.com/ypk46/sp-sundial">Source on GitHub <span aria-hidden="true">↗</span></a>
+                </p>
+              </div>
+            </div>
+            <div class="featured-visual featured-shot">
+              <img
+                src="/projects/sundial.png"
+                width="1312"
+                height="1160"
+                loading="lazy"
+                alt="Sundial dashboard showing total hours, a project distribution donut chart, a time-per-day bar chart and a list of completed tasks"
+              />
+            </div>
+          </article>
+
+          <article class="card project-card" data-category="productivity">
+            <div class="project-head">
+              <p class="project-meta">
+                <span class="label">Plugin · Super Productivity</span>
+                <span class="mono-link" aria-hidden="true">↗</span>
+              </p>
+              <h2><a class="card-link" href="https://github.com/ypk46/sp-better-planner">Better Planner</a></h2>
+              <p>
+                A wide, multi-day planning view for Super Productivity. Drag tasks across days, with unscheduled and
+                overdue work always in sight.
+              </p>
+            </div>
+            <ul class="tags" aria-label="Tags">
+              <li>TypeScript</li>
+              <li>Plugin</li>
+              <li>Drag and drop</li>
+            </ul>
           </article>
 
           <article class="card project-card" data-category="ai">
