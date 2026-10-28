@@ -1,13 +1,24 @@
 /* ykimura.dev: one stylesheet for every page. Tokens come from the design file. */
 
 :root {
-  --color-bg: #f6f6f3;
-  --color-surface: #fcfcfa;
-  --color-ink: #14161a;
-  --color-ink-muted: #5f6570;
-  --color-border: #e3e3de;
+  --color-bg: #f4f6f9;
+  --color-surface: #fbfcfd;
+  --color-ink: #0e1a2f;
+  --color-ink-muted: #5a6478;
+  --color-border: #dde2ea;
   --color-accent: #ff5a1f;
   --color-live: #22a55b;
+
+  /* Navy band (header, hero, footer). .band swaps the colors above for these. */
+  --color-band: #0b1d3a;
+  --color-band-surface: #12284d;
+  --color-band-border: #22385e;
+  --color-band-ink: #f1f4fa;
+  --color-band-ink-muted: #97a8c6;
+
+  /* Graph-paper lines on the light area */
+  --color-grid-minor: rgb(14 26 47 / 0.035);
+  --color-grid-major: rgb(14 26 47 / 0.06);
 
   --font-sans: "Geist", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -15,6 +26,7 @@
   --content: 1120px;
   --gutter: 16px;
   --label-col: 320px;
+  --header-h: 73px; /* navbar + its border; offsets the band pattern so it runs on from the header */
 
   color-scheme: light dark;
 }
@@ -22,22 +34,36 @@
 /* Dark values: from the system setting unless the theme toggle chose light (data-theme on <html>). */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --color-bg: #0e0f11;
-    --color-surface: #16181b;
-    --color-ink: #ecedea;
-    --color-ink-muted: #9399a3;
-    --color-border: #26292e;
+    --color-bg: #0b1220;
+    --color-surface: #111a2c;
+    --color-ink: #e9eef6;
+    --color-ink-muted: #8e9ab0;
+    --color-border: #1f2a40;
     --color-accent: #ff6a33;
+    --color-band: #081530;
+    --color-band-surface: #0f2147;
+    --color-band-border: #1c315a;
+    --color-band-ink: #eef2fa;
+    --color-band-ink-muted: #8c9ebf;
+    --color-grid-minor: rgb(255 255 255 / 0.025);
+    --color-grid-major: rgb(255 255 255 / 0.045);
   }
 }
 
 :root[data-theme="dark"] {
-  --color-bg: #0e0f11;
-  --color-surface: #16181b;
-  --color-ink: #ecedea;
-  --color-ink-muted: #9399a3;
-  --color-border: #26292e;
+  --color-bg: #0b1220;
+  --color-surface: #111a2c;
+  --color-ink: #e9eef6;
+  --color-ink-muted: #8e9ab0;
+  --color-border: #1f2a40;
   --color-accent: #ff6a33;
+  --color-band: #081530;
+  --color-band-surface: #0f2147;
+  --color-band-border: #1c315a;
+  --color-band-ink: #eef2fa;
+  --color-band-ink-muted: #8c9ebf;
+  --color-grid-minor: rgb(255 255 255 / 0.025);
+  --color-grid-major: rgb(255 255 255 / 0.045);
   color-scheme: dark;
 }
 
@@ -57,9 +83,17 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* Graph paper: 32px minor and 160px major lines. Centred, the major lines land on the content edges. */
 body {
   margin: 0;
-  background: var(--color-bg);
+  background-color: var(--color-bg);
+  background-image:
+    linear-gradient(var(--color-grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-major) 1px, transparent 1px),
+    linear-gradient(var(--color-grid-minor) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-minor) 1px, transparent 1px);
+  background-size: 160px 160px, 160px 160px, 32px 32px, 32px 32px;
+  background-position: center top;
   color: var(--color-ink);
   font-family: var(--font-sans);
   font-size: 16px;
@@ -120,6 +154,42 @@ button {
 
 .mono {
   font-family: var(--font-mono);
+}
+
+/* Navy band: everything inside picks up the band colors through the same tokens. */
+.band {
+  --color-bg: var(--color-band);
+  --color-surface: var(--color-band-surface);
+  --color-border: var(--color-band-border);
+  --color-ink: var(--color-band-ink);
+  --color-ink-muted: var(--color-band-ink-muted);
+  background-color: var(--color-band);
+  color: var(--color-ink);
+}
+
+/* Topographic contours, anchored right so the peak stays in view on narrow screens. The intro band
+   shifts the image up by the header's height so the lines run on unbroken from the header. */
+.band-topo {
+  background-image: url("/topo.svg");
+  background-repeat: no-repeat;
+  background-size: max(1440px, 100%) auto;
+  background-position: right top;
+}
+
+.band-intro {
+  background-position: right 0 top calc(-1 * var(--header-h));
+}
+
+.band .button-secondary {
+  background: transparent;
+}
+
+.page-body {
+  padding-top: 96px;
+}
+
+.page-body-tight {
+  padding-top: 48px;
 }
 
 /* Type */
@@ -418,6 +488,10 @@ button {
   padding: 120px 0 96px;
 }
 
+.band-intro .stats {
+  margin-bottom: 96px;
+}
+
 .hero h1 {
   max-width: 1000px;
 }
@@ -536,6 +610,12 @@ button {
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--color-ink-muted);
+}
+
+/* Home's short list reads without dividers. */
+.posts-plain .posts,
+.posts-plain .posts li {
+  border: 0;
 }
 
 .posts-more {
@@ -951,9 +1031,11 @@ button {
   justify-content: space-between;
   align-items: center;
   gap: 16px 24px;
+  padding: 40px 0 48px;
+}
+
+.band-footer {
   margin-top: 160px;
-  padding: 32px 0 48px;
-  border-top: 1px solid var(--color-border);
 }
 
 .footer-links {
@@ -1222,7 +1304,22 @@ button {
   .site-footer {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .band-footer {
     margin-top: 96px;
+  }
+
+  .band-intro .stats {
+    margin-bottom: 64px;
+  }
+
+  .page-body {
+    padding-top: 64px;
+  }
+
+  .page-body-tight {
+    padding-top: 40px;
   }
 
   .prose {
