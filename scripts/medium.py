@@ -22,6 +22,9 @@ from itertools import groupby
 
 POSTS = "data/posts.json"
 MAX_TAGS = 3
+# Medium's own feed snippets run to about this many characters before the ellipsis.
+SNIPPET_LENGTH = 140
+NS = {"content": "http://purl.org/rss/1.0/modules/content/"}
 # Medium category slugs are lowercase; restore the acronyms we know about.
 ACRONYMS = {"ai": "AI", "ml": "ML", "llm": "LLM", "llms": "LLMs", "api": "API", "aws": "AWS"}
 
@@ -34,9 +37,7 @@ def fetch_posts(username):
         root = ET.fromstring(resp.read())
     posts = []
     for item in root.iter("item"):
-        description = item.findtext("description", "")
-        snippet = re.search(r'class="medium-feed-snippet">(.*?)</p>', description, re.S)
-        image = re.search(r'<img src="([^"]+)"', description)
+        summary, image = parse_preview(item)
         posts.append(
             {
                 "id": item.findtext("guid", "").rsplit("/", 1)[-1],
@@ -44,11 +45,45 @@ def fetch_posts(username):
                 "url": item.findtext("link", "").split("?")[0],
                 "date": parsedate_to_datetime(item.findtext("pubDate")).date().isoformat(),
                 "tags": [c.text for c in item.findall("category") if c.text],
-                "summary": html.unescape(snippet.group(1)).strip() if snippet else "",
-                "image": image.group(1) if image else "",
+                "summary": summary,
+                "image": image,
             }
         )
     return posts
+
+
+def parse_preview(item):
+    """Return (summary, image) for a feed item.
+
+    Medium sends items in one of two shapes. Member-only posts get a short preview in
+    <description> (a medium-feed-snippet paragraph plus an image). Public posts get an
+    empty <description> and the full article in <content:encoded>; for those, the
+    summary is the article's first paragraph, cut to snippet length.
+    """
+    description = item.findtext("description", "")
+    content = item.findtext("content:encoded", "", NS)
+    snippet = re.search(r'class="medium-feed-snippet">(.*?)</p>', description, re.S)
+    if snippet:
+        summary = html.unescape(snippet.group(1)).strip()
+    else:
+        paragraph = re.search(r"<p>(.*?)</p>", content, re.S)
+        summary = truncate(strip_tags(paragraph.group(1))) if paragraph else ""
+    image = re.search(r'<img\b[^>]*?\bsrc="([^"]+)"', description) or re.search(
+        r'<img\b[^>]*?\bsrc="([^"]+)"', content
+    )
+    return summary, image.group(1) if image else ""
+
+
+def strip_tags(fragment):
+    text = html.unescape(re.sub(r"<[^>]+>", "", fragment))
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def truncate(text, limit=SNIPPET_LENGTH):
+    """Cut at a word boundary and end with an ellipsis, like Medium's own snippets."""
+    if len(text) <= limit:
+        return text
+    return text[:limit].rsplit(" ", 1)[0].rstrip(" ,;:.") + "…"
 
 
 def merge(known, fetched):
